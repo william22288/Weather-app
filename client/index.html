@@ -3,10 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="CodeSnippet.io">
-    <meta name="title" content="Project Template | CodeSnippet.io">
-    <meta name="description" content="How to use the Project Template">
-    <title>Project Template | CodeSnippet.io</title>
+    
     <link rel="icon" type="image/png" href="images/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -16,26 +13,39 @@
 
     <!-- code goes below -->
     <main class="grow flex flex-col items-center justify-center">
-        <h1 class="text-center text-2xl mt-5 font-bold my-4">CodeSnippet.io Project Template</h1>
-        <section>
-            <form id="form" class="flex space-x-2">
-                <div>
-                    <label for="text" class="sr-only">Text</label>
-                    <input id="text" type="text" name="name" class="block w-full rounded-md border border-gray-300 px-2.5 py-1.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter some text">
+        <div class="bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-lg p-1 w-full max-w-sm h-[32rem] shadow-xl hover:shadow-lg transition transition-shadow duration-600">
+            <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur h-full rounded-md">
+                <div class="h-full w-full" style="background-image: url('images/topography.svg')">
+                    <div class="flex w-full justify-center items-center h-full" id="loader">
+                        <img class="h-8 w-8" src="images/loading.svg">
+                    </div>
+                    <div id="container" class="hidden flex flex-col h-full justify-center space-y-8">
+                        <h1 id="city"
+                            class="text-xl font-semibold text-indigo-900 text-center tracking-wider uppercase"></h1>
+                        <div class="flex flex-col w-full items-center space-y-4">
+                            <div class="bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-full p-1">
+                                <div class="w-fit outline outline-8 outline-indigo-100/50 rounded-full bg-white">
+                                    <img id="icon" class="h-32 w-32 mx-auto" src="" alt="Weather Icon">
+                                </div>
+                            </div>
+                            <h2 id="description"
+                                class="text-sm font-light text-indigo-500/70 text-center tracking-widest uppercase"></h2>
+                        </div>
+                        <h3 id="currentTemp" class="text-7xl font-bold text-center text-indigo-900"></h3>
+                        <div class="flex justify-center space-x-2 font-normal text-xs text-indigo-800/70 tracking-wide">
+                            <h3 id="minTemp"></h3>
+                            <span>/</span>
+                            <h3 id="maxTemp"></h3>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
-            </form>
-        </section>
+            </div>
+        </div>
     </main>
     <!-- code goes above-->
 
     <footer>
-        <div class="text-center mt-5 flex flex-col items-center space-y-2">
-            <p class="text-gray-500 font-mono text-sm">A lightning-fast tutorial by </p>
-            <a href="https://codesnippet.io?ref=project-template" class="text-indigo-500 font-semibold underline">
-                <img class="h-16" src="images/logo.png" alt="CodeSnippet.io by PairProgram.com">
-            </a>
-        </div>
+        
     </footer>
     <script src="app/index.js" type="module"></script>
 </div>
