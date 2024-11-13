@@ -9,13 +9,34 @@
 </head>
 
 <body>
+
+    <form id="locationForm" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="cityInput" class="sr-only">City</label>
+            <input type="text" class="form-control" id="cityInput" placeholder="Enter city" required>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="stateInput" class="sr-only">State</label>
+            <input type="text" class="form-control" id="stateInput" placeholder="Enter state" required>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Get Weather</button>
+    </form>
+
+    <div class="form-group mb-2">
+        <label for="unitToggle" class="mr-2">Unit:</label>
+        <select id="unitToggle" class="form-control">
+            <option value="metric">Celsius</option>
+            <option value="imperial">Fahrenheit</option>
+        </select>
+    </div>
+
 <div id="root" class="flex flex-col min-h-screen p-16">
 
     <!-- code goes below -->
     <main class="grow flex flex-col items-center justify-center">
         <div class="bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-lg p-1 w-full max-w-sm h-[32rem] shadow-xl hover:shadow-lg transition transition-shadow duration-600">
             <div class="bg-white bg-opacity-90 backdrop-filter backdrop-blur h-full rounded-md">
-                <div class="h-full w-full" style="background-image: url('images/topography.svg')">
+                <div class="h-full w-full" >
                     <div class="flex w-full justify-center items-center h-full" id="loader">
                         <img class="h-8 w-8" src="images/loading.svg">
                     </div>
@@ -37,15 +58,27 @@
                             <span>/</span>
                             <h3 id="maxTemp"></h3>
                         </div>
+                        <div class="flex justify-center space-x-2 font-normal text-xs text-indigo-800/70 tracking-wide">
+                            <h3 id="airQuality"></h3>
+                            
+                        </div>
+                        
+
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="forecast" class="flex flex-col items-center space-y-4 mt-8">
+            <h2 class="text-xl font-semibold text-indigo-900 text-center tracking-wider uppercase">5-Day Forecast</h2>
+            <div id="forecastContainer" class="flex flex-wrap justify-center space-x-4"></div>
+        </div>
+
     </main>
     <!-- code goes above-->
 
     <footer>
-        
+
     </footer>
     <script src="app/index.js" type="module"></script>
 </div>
