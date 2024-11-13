@@ -19,7 +19,7 @@ app.use(express.static(path.join(process.cwd(), 'client')))
 
 app.post('/api/current-weather', async (req,res)=>{
     const { lat, lon } = req.body;
-    const { city, icon, description, currentTemp, minTemp, maxTemp} = await getCurrentWeather(lat, lon);
+    const { city, icon, description, currentTemp, minTemp, maxTemp, airQuality} = await getCurrentWeather(lat, lon);
 
     return res.json({
         city,
@@ -27,7 +27,8 @@ app.post('/api/current-weather', async (req,res)=>{
         description,
         currentTemp,
         minTemp,
-        maxTemp
+        maxTemp,
+        airQuality
     })
 })
 
