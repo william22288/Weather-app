@@ -6,18 +6,24 @@ const OPEN_WEATHER_API_KEY = process.env.OPEN_WEATHER_API_KEY;
 
 export async function getCurrentWeather(lat, lon) {
 
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_API_KEY}`);
+    const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OPEN_WEATHER_API_KEY}`);
 
     //parse the response as JSON
-    const data = await res.json();
+    const weatherData = await weatherRes.json();
+
+    const airQualityRes = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_API_KEY}`);
+    const airQualityData = await airQualityRes.json();
 
     return {
-        city: data.name,
-        icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`,
-        description: data.weather[0].description,
-        currentTemp: Math.round(data.main.temp),
-        minTemp: Math.trunc(data.main.temp_min),
-        maxTemp: Math.trunc(data.main.temp_max),
+        city: weatherData.name,
+        icon: `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`,
+        description: weatherData.weather[0].description,
+        currentTemp: Math.round(weatherData.main.temp),
+        minTemp: Math.trunc(weatherData.main.temp_min),
+        maxTemp: Math.trunc(weatherData.main.temp_max),
+        airQuality: airQualityData.list[0].main.aqi // Air Quality Index (AQI)
     }
 }
+
+
 
